@@ -37,6 +37,35 @@ const DETECTION_CHIPS = [
   { label: 'Tracking-Cookies',        cn: 'bg-red-100 text-red-700 border-red-200' },
 ]
 
+/* ── Ratgeber-Links ──────────────────────────────────────────── */
+const GUIDES = [
+  {
+    href: '/google-fonts-dsgvo',
+    label: 'Google Fonts DSGVO: Risiko & Lösung',
+    desc: 'IP-Übertragung erkennen und Fonts lokal hosten.',
+  },
+  {
+    href: '/google-analytics-dsgvo',
+    label: 'Google Analytics DSGVO: Setup & Alternativen',
+    desc: 'Was übertragen wird und datenschutzfreundliche Alternativen.',
+  },
+  {
+    href: '/facebook-pixel-dsgvo',
+    label: 'Facebook/Meta Pixel DSGVO: prüfen & deaktivieren',
+    desc: 'Pixel technisch erkennen und Consent korrekt einbinden.',
+  },
+  {
+    href: '/tracking-cookies-dsgvo',
+    label: 'Tracking Cookies DSGVO: Consent & Prüfung',
+    desc: 'Welche Cookies gesetzt werden und was einwilligungspflichtig ist.',
+  },
+  {
+    href: '/dsgvo-website-check',
+    label: 'DSGVO Website Check: kompletter Leitfaden',
+    desc: 'Überblick über alle externen Dienste und Tracking-Indikatoren.',
+  },
+]
+
 /* ── Trust items ─────────────────────────────────────────────── */
 const TRUST = [
   'Keine Installation',
@@ -245,6 +274,40 @@ export default function ScanPage() {
               welt.de Report ansehen
             </a>
           </p>
+        </div>
+      </section>
+
+      {/* ── Ratgeber: DSGVO & Tracking ───────────────────────── */}
+      <section className="bg-white border-t border-zinc-100 px-4 py-10">
+        <div className="max-w-2xl mx-auto space-y-5">
+          <div className="text-center space-y-1.5">
+            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">
+              Ratgeber: DSGVO &amp; Tracking
+            </p>
+            <p className="text-xs text-zinc-500">
+              Anleitungen zu den häufigsten Tracking-Themen:
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {GUIDES.map((g) => (
+              <a
+                key={g.href}
+                href={g.href}
+                className={cn(
+                  'group flex items-start gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-3',
+                  'shadow-card hover:border-zinc-300 hover:shadow-card-md transition-all duration-150',
+                )}
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-zinc-800 group-hover:text-zinc-900 leading-snug">
+                    {g.label}
+                  </p>
+                  <p className="text-xs text-zinc-500 mt-0.5 leading-snug">{g.desc}</p>
+                </div>
+                <ArrowRight className="h-3.5 w-3.5 text-zinc-300 group-hover:text-zinc-500 flex-shrink-0 mt-0.5 transition-colors" />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
