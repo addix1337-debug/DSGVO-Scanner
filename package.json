@@ -1,0 +1,22 @@
+{
+  "name": "dsgvo-scanner",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:worker": "pnpm --filter worker dev",
+    "dev": "pnpm --filter './apps/**' --parallel dev",
+    "build": "pnpm --filter web build && pnpm --filter worker build",
+    "typecheck": "pnpm --filter worker exec tsc --noEmit && pnpm --filter web exec tsc --noEmit",
+    "lint": "pnpm --filter web lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "approvedBuilds": [
+      "esbuild",
+      "unrs-resolver"
+    ]
+  }
+}

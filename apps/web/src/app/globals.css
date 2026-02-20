@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #F2F2F5;
+    color: #09090b;
+    font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    letter-spacing: -0.01em;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #18181b;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background-color: #18181b;
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Layered card shadows for depth */
+  .shadow-card {
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.04),
+      0 2px 4px rgb(0 0 0 / 0.04);
+  }
+
+  .shadow-card-md {
+    box-shadow:
+      0 1px 3px rgb(0 0 0 / 0.06),
+      0 4px 8px rgb(0 0 0 / 0.05),
+      0 0 0 1px rgb(0 0 0 / 0.03);
+  }
+
+  .shadow-card-lg {
+    box-shadow:
+      0 2px 4px rgb(0 0 0 / 0.04),
+      0 8px 16px rgb(0 0 0 / 0.06),
+      0 0 0 1px rgb(0 0 0 / 0.03);
+  }
+
+  /* Inset border helper */
+  .ring-inset-zinc {
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08);
+  }
+}
