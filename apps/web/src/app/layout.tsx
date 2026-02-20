@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'DSGVO Scanner – Technischer Website-Check',
   description:
     'Erkennt externe Dienste, Tracking-Indikatoren und Cookies auf deiner Website – kostenlos, ohne Registrierung.',
+  verification: {
+    google: 'ZM5ehEh-P5zsO-DwghIvnIsHkpPC5BrW00rJ62c3_9I',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
