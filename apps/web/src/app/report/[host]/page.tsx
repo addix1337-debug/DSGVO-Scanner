@@ -80,25 +80,14 @@ interface PublicScanRow {
 async function getPublicScan(host: string): Promise<PublicScanRow | null> {
   const supabase = getServerSupabase()
 
-  // URL constructor normalises bare domains to https://host/ (trailing slash).
-  // Cover all reasonable variants that validateUrl() might have stored.
-  const variants = [
-    `https://${host}/`,
-    `https://${host}`,
-    `http://${host}/`,
-    `http://${host}`,
-    `https://www.${host}/`,
-    `https://www.${host}`,
-    `http://www.${host}/`,
-    `http://www.${host}`,
-  ]
-
+  // Match any URL whose host part equals `host` or `www.${host}`.
+  // host is already validated to [a-z0-9.-] so no injection risk.
   const { data, error } = await supabase
     .from('scans')
     .select('id, url, created_at, result')
     .eq('public', true)
     .eq('status', 'done')
-    .in('url', variants)
+    .or(`url.ilike.%://${host}%,url.ilike.%://www.${host}%`)
     .order('created_at', { ascending: false })
     .limit(1)
     .maybeSingle()
