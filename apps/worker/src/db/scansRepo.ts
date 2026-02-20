@@ -34,8 +34,16 @@ export async function markScanRunning(id: string): Promise<void> {
   if (error) throw new Error(`markScanRunning(${id}) fehlgeschlagen: ${error.message}`)
 }
 
-export async function markScanDone(id: string, result: ScanResult): Promise<void> {
-  const payload: { status: ScanStatus; result: ScanResult } = { status: 'done', result }
+export async function markScanDone(
+  id: string,
+  result: ScanResult,
+  isPublic = false,
+): Promise<void> {
+  const payload: { status: ScanStatus; result: ScanResult; public: boolean } = {
+    status: 'done',
+    result,
+    public: isPublic,
+  }
   const { error } = await db().from('scans').update(payload).eq('id', id)
   if (error) throw new Error(`markScanDone(${id}) fehlgeschlagen: ${error.message}`)
 }

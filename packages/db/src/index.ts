@@ -46,6 +46,7 @@ export interface Database {
           result: ScanResult | null
           error_message: string | null
           requester_ip: string | null
+          public: boolean
         }
         Insert: {
           url: string
@@ -53,11 +54,13 @@ export interface Database {
           result?: ScanResult | null
           error_message?: string | null
           requester_ip?: string | null
+          public?: boolean
         }
         Update: {
           status?: ScanStatus
           result?: ScanResult | null
           error_message?: string | null
+          public?: boolean
         }
       }
       monitored_sites: {

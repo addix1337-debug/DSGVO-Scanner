@@ -6,6 +6,18 @@ import type { ScanErrorCode } from '@dsgvo/db'
 
 const SCAN_TIMEOUT_MS = 70_000
 
+// ---------------------------------------------------------------------------
+// Public-report allowlist
+// Set PUBLIC_REPORT_HOSTS=example.com,demo.de in worker env vars.
+// Only scans for these hosts will be stored with public=true.
+// ---------------------------------------------------------------------------
+const PUBLIC_HOSTS = new Set(
+  (process.env.PUBLIC_REPORT_HOSTS ?? '')
+    .split(',')
+    .map((h) => h.trim().toLowerCase().replace(/^www\./, ''))
+    .filter(Boolean),
+)
+
 const app = Fastify({ logger: true })
 
 // ---------------------------------------------------------------------------
@@ -97,7 +109,16 @@ async function runScanJob(scanId: string): Promise<void> {
   try {
     const result = await withTimeout(runScan(scan.url), SCAN_TIMEOUT_MS)
 
-    await markScanDone(scanId, result)
+    // Determine if this scan should be public (host in allowlist)
+    let isPublic = false
+    try {
+      const host = new URL(scan.url).hostname.replace(/^www\./, '')
+      isPublic = PUBLIC_HOSTS.has(host)
+    } catch {
+      // leave isPublic = false on invalid URL
+    }
+
+    await markScanDone(scanId, result, isPublic)
 
     app.log.info(
       {
