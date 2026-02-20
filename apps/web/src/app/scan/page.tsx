@@ -205,16 +205,32 @@ export default function ScanPage() {
               </p>
             )}
 
-            {/* Example report link */}
-            <p className="text-xs text-zinc-400 text-center">
-              <a
-                href="/report/welt.de"
-                className="inline-flex items-center gap-1 underline underline-offset-2 decoration-zinc-300 hover:text-zinc-600 transition-colors"
-              >
-                Beispiel-DSGVO-Report ansehen (welt.de)
-                <ArrowRight className="h-3 w-3" />
-              </a>
-            </p>
+            {/* Example report links */}
+            <div className="rounded-xl border border-zinc-200 bg-white/70 px-4 py-3 space-y-1.5 text-center shadow-card">
+              <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.18em]">
+                Beispiel-DSGVO-Reports
+              </p>
+              <p className="text-xs text-zinc-500">
+                Echte Prüfergebnisse von bekannten Websites:
+              </p>
+              <ul className="flex flex-col items-center gap-1 pt-0.5">
+                {[
+                  { href: '/report/welt.de',    label: 'DSGVO-Check für welt.de ansehen' },
+                  { href: '/report/spiegel.de', label: 'DSGVO-Check für spiegel.de ansehen' },
+                  { href: '/report/zeit.de',    label: 'DSGVO-Check für zeit.de ansehen' },
+                ].map((r) => (
+                  <li key={r.href}>
+                    <a
+                      href={r.href}
+                      className="inline-flex items-center gap-1 text-xs text-zinc-500 underline underline-offset-2 decoration-zinc-300 hover:text-zinc-700 transition-colors"
+                    >
+                      {r.label}
+                      <ArrowRight className="h-3 w-3 flex-shrink-0" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </form>
 
           {/* Trust row */}
