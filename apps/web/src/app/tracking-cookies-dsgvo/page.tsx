@@ -46,8 +46,10 @@ export default function TrackingCookiesDsgvoPage() {
       />
 
       <SEOCTABlock
-        headline="Tracking-Cookies auf deiner Website erkennen"
+        headline="Kostenlosen DSGVO-Check starten"
         subtext="Der Scanner zeigt alle Cookies, die beim Laden deiner Seite gesetzt werden – sortiert nach Typ und Risiko."
+        ctaText="Jetzt Website scannen"
+        secondaryHref="/report/welt.de"
       />
 
       <SEOFaq

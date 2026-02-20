@@ -175,6 +175,17 @@ export default function ScanPage() {
                 {error}
               </p>
             )}
+
+            {/* Example report link */}
+            <p className="text-xs text-zinc-400 text-center">
+              <a
+                href="/report/welt.de"
+                className="inline-flex items-center gap-1 underline underline-offset-2 decoration-zinc-300 hover:text-zinc-600 transition-colors"
+              >
+                Beispiel-DSGVO-Report ansehen (welt.de)
+                <ArrowRight className="h-3 w-3" />
+              </a>
+            </p>
           </form>
 
           {/* Trust row */}
@@ -224,6 +235,15 @@ export default function ScanPage() {
           <p className="text-xs text-zinc-400 max-w-sm mx-auto leading-relaxed">
             Alle Erkennungen basieren auf technischer Netzwerkanalyse —
             keine rechtliche Bewertung.
+          </p>
+          <p className="text-xs text-zinc-400">
+            Beispiel:{' '}
+            <a
+              href="/report/welt.de"
+              className="underline underline-offset-2 decoration-zinc-300 hover:text-zinc-600 transition-colors"
+            >
+              welt.de Report ansehen
+            </a>
           </p>
         </div>
       </section>

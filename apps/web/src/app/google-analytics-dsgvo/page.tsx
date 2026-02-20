@@ -46,8 +46,10 @@ export default function GoogleAnalyticsDsgvoPage() {
       />
 
       <SEOCTABlock
-        headline="Google Analytics auf deiner Website erkennen"
+        headline="Kostenlosen DSGVO-Check starten"
         subtext="Der Scanner zeigt dir in ~15 Sekunden, welche Analytics-Tools aktiv sind – inklusive gesetzter Tracking-Cookies."
+        ctaText="Jetzt Website scannen"
+        secondaryHref="/report/welt.de"
       />
 
       <SEOFaq

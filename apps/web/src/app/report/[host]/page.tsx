@@ -240,6 +240,54 @@ export default async function PublicReportPage({
         </div>
       )}
 
+      {/* ── Mehr zum Thema ────────────────────────────────────────────────── */}
+      <div className="space-y-3">
+        <SectionHeader title="Mehr zum Thema" />
+        <div className="flex flex-wrap gap-2">
+          {[
+            { href: '/google-fonts-dsgvo',     label: 'Google Fonts & DSGVO' },
+            { href: '/google-analytics-dsgvo', label: 'Google Analytics & DSGVO' },
+            { href: '/facebook-pixel-dsgvo',   label: 'Facebook Pixel & DSGVO' },
+            { href: '/tracking-cookies-dsgvo', label: 'Tracking-Cookies' },
+            { href: '/dsgvo-website-check',    label: 'Website-Check erklärt' },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={cn(
+                'inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white',
+                'px-3.5 py-2 text-xs font-semibold text-zinc-600 shadow-card',
+                'hover:border-zinc-400 hover:text-zinc-900 transition-all duration-150',
+              )}
+            >
+              {link.label}
+              <ArrowRight className="h-3 w-3" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Neuen Scan starten ────────────────────────────────────────────── */}
+      <div className="rounded-2xl bg-zinc-900 px-6 py-8 text-center shadow-card-lg">
+        <p className="text-base font-black text-white tracking-tight mb-1">
+          Eigene Website prüfen?
+        </p>
+        <p className="text-sm text-white/55 mb-5">
+          Kostenloser DSGVO-Scan in ~15 Sekunden — kein Konto nötig.
+        </p>
+        <a
+          href="/scan"
+          className={cn(
+            'inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold',
+            'bg-white text-zinc-900 shadow-sm',
+            'hover:bg-zinc-100 active:scale-[0.97] transition-all duration-150',
+          )}
+        >
+          <RefreshCw className="h-4 w-4" />
+          Neuen Scan starten
+        </a>
+      </div>
+
       {/* ── Disclaimer ────────────────────────────────────────────────────── */}
       <p className="text-xs text-zinc-400 text-center flex items-center justify-center gap-1.5 pb-6">
         <Shield className="h-3 w-3 flex-shrink-0" />

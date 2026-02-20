@@ -118,9 +118,10 @@ export default function DsgvoWebsiteCheckPage() {
       />
 
       <SEOCTABlock
-        headline="Website jetzt kostenlos prüfen"
+        headline="Kostenlosen DSGVO-Check starten"
         subtext="Alle externen Dienste, Cookies und Tracking-Indikatoren in ~15 Sekunden – ohne Registrierung."
-        ctaText="Kostenlos prüfen"
+        ctaText="Jetzt Website scannen"
+        secondaryHref="/report/welt.de"
       />
 
       <SEOFaq

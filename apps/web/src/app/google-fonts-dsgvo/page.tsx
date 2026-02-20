@@ -46,8 +46,10 @@ export default function GoogleFontsDsgvoPage() {
       />
 
       <SEOCTABlock
-        headline="Google Fonts auf deiner Website prüfen"
+        headline="Kostenlosen DSGVO-Check starten"
         subtext="Unser Scanner erkennt in ~15 Sekunden, ob externe Schriften geladen werden – kostenlos, ohne Registrierung."
+        ctaText="Jetzt Website scannen"
+        secondaryHref="/report/welt.de"
       />
 
       <SEOFaq

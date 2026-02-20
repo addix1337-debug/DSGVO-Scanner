@@ -46,8 +46,10 @@ export default function FacebookPixelDsgvoPage() {
       />
 
       <SEOCTABlock
-        headline="Facebook Pixel auf deiner Website erkennen"
+        headline="Kostenlosen DSGVO-Check starten"
         subtext="Der Scanner zeigt dir in ~15 Sekunden, ob der Meta Pixel aktiv ist – inklusive der gesetzten Tracking-Cookies."
+        ctaText="Jetzt Website scannen"
+        secondaryHref="/report/welt.de"
       />
 
       <SEOFaq

@@ -132,12 +132,16 @@ interface SEOCTABlockProps {
   headline?: string
   subtext?: string
   ctaText?: string
+  secondaryHref?: string
+  secondaryText?: string
 }
 
 export function SEOCTABlock({
   headline = 'Website kostenlos prüfen',
   subtext = 'Erkennt externe Dienste, Tracking-Indikatoren und Cookies – in ~15 Sekunden.',
   ctaText = 'Kostenlos prüfen',
+  secondaryHref,
+  secondaryText = 'Beispielreport ansehen (welt.de)',
 }: SEOCTABlockProps) {
   return (
     <section className="px-4 pb-10">
@@ -163,6 +167,14 @@ export function SEOCTABlock({
           <p className="text-[11px] text-white/30 mt-4">
             Kein Konto · Keine Installation · Technischer Hinweis
           </p>
+          {secondaryHref && (
+            <a
+              href={secondaryHref}
+              className="inline-block mt-2 text-xs text-white/40 underline underline-offset-2 hover:text-white/70 transition-colors"
+            >
+              {secondaryText}
+            </a>
+          )}
         </div>
       </div>
     </section>
@@ -230,7 +242,7 @@ export function SEORelated({ links }: SEORelatedProps) {
   return (
     <section className="px-4 pb-16">
       <div className="max-w-3xl mx-auto space-y-4">
-        <SectionLabel>Weitere technische Checks</SectionLabel>
+        <SectionLabel>Weitere DSGVO-Prüfungen</SectionLabel>
         <div className="flex flex-wrap gap-2">
           {links.map((link) => (
             <a
