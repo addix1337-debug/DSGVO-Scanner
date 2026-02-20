@@ -1,3 +1,8 @@
+## Live Demo
+
+DSGVO Scan Beispiel:
+https://dsgvo-scanner-web.vercel.app/report/welt.de
+
 # DSGVO Scanner
 
 Ein Micro-SaaS MVP, das eine Website-URL entgegennimmt, die Seite per Playwright lädt und technische DSGVO-relevante Merkmale erkennt: externe Tracker, Fonts, Cookies, Impressum und Datenschutzerklärung.
